@@ -30,7 +30,6 @@ var addMarkdownSupport = function() {
 			if(!a.originalText) {
 				a.originalText = a.text;
 				a.text = converter.makeHtml(a.text);
-				console.log(a.text);
 			}
 			_displayNotebookViewer();
 		}
