@@ -22,22 +22,28 @@ var Markdown = {};
 var addMarkdownSupport = function() {
 	var converter = new Markdown.Converter();
 
-	var _displayNotebookDetails = displayNotebookDetails;
-	displayNotebookDetails = function(a, b) {
-		currentList[a].originalText = b;
-		if(!currentList[a].text) {
-			b = converter.makeHtml(b);
-			console.log(b);
+	var _displayNotebookViewer = displayNotebookViewer;
+	displayNotebookViewer = function() {
+		var a = parseInt($("#notebook_details").attr("nid"));
+		if(a != 0) {
+			a = currentList[a];
+			if(!a.originalText) {
+				a.originalText = a.text;
+				a.text = converter.makeHtml(a.text);
+				console.log(a.text);
+			}
+			_displayNotebookViewer();
 		}
-		_displayNotebookDetails(a, b);
 	}
 	
 	var _displayNotebookEditor = displayNotebookEditor;
 	displayNotebookEditor = function() {
 		var a = parseInt($("#notebook_details").attr("nid"));
 		currentList[a].text = currentList[a].originalText;
+		currentList[a].originalText = false;
 		_displayNotebookEditor();
 	}
+
 };
 
 //
