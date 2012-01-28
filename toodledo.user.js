@@ -47,6 +47,7 @@ var addMarkdownSupport = function() {
 
 //
 // INCLUSION OF THE Markdown.Converter FROM PAGEDOWN
+// The file version is f5a5cebbe3ea
 // TODO this should be dynamically loaded, e.g. via @require
 // Below you'll find addMardownSupport() invoked
 //
