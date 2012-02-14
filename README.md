@@ -13,7 +13,7 @@ Installation
 
 For Opera simply link or copy the file `toodledo.user.js` into your User-Javascript directoy. You can find the location of that directory in [opera:about](opera:about) or in the Javascript settings dialog.
 
-For Greasemonkey simple select the file `toodledo.user.js` in the Greasemonkey script administration UI.
+For Greasemonkey add the file `toodledo.user.js` as described in the [Greasemonkey documentation](http://wiki.greasespot.net/Greasemonkey_Manual:Installing_Scripts).
 
 License
 -------

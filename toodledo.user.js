@@ -2,7 +2,7 @@
 // @name        Markdown support for Toodledo
 // @description Will render notes in Toodledo according to Markdown syntax.
 // @namespace   http://www.marix.org
-// @include     http://www.toodledo.com/notebook/index.php
+// @include     http://www.toodledo.com/notebook/index.php*
 // ==/UserScript==
 
 // Copyright (c) Matthias Bach <marix@marix.org> and the Pagedown authors
