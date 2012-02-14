@@ -20,13 +20,17 @@ var Markdown = {};
 // code modifying Toodledo
 
 var addMarkdownSupport = function() {
+	// we need unsafeWindow on Greasemonkey, in Opera it doesn't exist and we can
+	// just use the normal context itself.
+	var origWindow = typeof(unsafeWindow) === 'undefined' ? this : unsafeWindow;
+
 	var converter = new Markdown.Converter();
 
-	var _displayNotebookViewer = displayNotebookViewer;
-	displayNotebookViewer = function() {
+	var _displayNotebookViewer = origWindow.displayNotebookViewer;
+	origWindow.displayNotebookViewer = function() {
 		var a = parseInt($("#notebook_details").attr("nid"));
 		if(a != 0) {
-			a = currentList[a];
+			a = origWindow.currentList[a];
 			if(!a.originalText) {
 				a.originalText = a.text;
 				a.text = converter.makeHtml(a.text);
@@ -35,14 +39,13 @@ var addMarkdownSupport = function() {
 		}
 	}
 	
-	var _displayNotebookEditor = displayNotebookEditor;
-	displayNotebookEditor = function() {
+	var _displayNotebookEditor = origWindow.displayNotebookEditor;
+	origWindow.displayNotebookEditor = function() {
 		var a = parseInt($("#notebook_details").attr("nid"));
-		currentList[a].text = currentList[a].originalText;
-		currentList[a].originalText = false;
+		origWindow.currentList[a].text = origWindow.currentList[a].originalText;
+		origWindow.currentList[a].originalText = false;
 		_displayNotebookEditor();
 	}
-
 };
 
 //
