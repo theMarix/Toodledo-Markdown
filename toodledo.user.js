@@ -28,7 +28,7 @@ var addMarkdownSupport = function() {
 
 	var _displayNotebookViewer = origWindow.displayNotebookViewer;
 	origWindow.displayNotebookViewer = function() {
-		var a = parseInt($("#notebook_details").attr("nid"));
+		var a = parseInt(origWindow.$("#notebook_details").attr("nid"));
 		if(a != 0) {
 			a = origWindow.currentList[a];
 			if(!a.originalText) {
@@ -41,7 +41,7 @@ var addMarkdownSupport = function() {
 	
 	var _displayNotebookEditor = origWindow.displayNotebookEditor;
 	origWindow.displayNotebookEditor = function() {
-		var a = parseInt($("#notebook_details").attr("nid"));
+		var a = parseInt(origWindow.$("#notebook_details").attr("nid"));
 		origWindow.currentList[a].text = origWindow.currentList[a].originalText;
 		origWindow.currentList[a].originalText = false;
 		_displayNotebookEditor();
