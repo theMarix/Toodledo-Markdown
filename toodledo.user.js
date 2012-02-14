@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name        Mardown support for Toodledo 
-// @description Will replace display version of notes by mardown rendered on.
+// @name        Markdown support for Toodledo
+// @description Will render notes in Toodledo according to Markdown syntax.
 // @namespace   http://www.marix.org
 // @include     http://www.toodledo.com/notebook/index.php
 // ==/UserScript==
