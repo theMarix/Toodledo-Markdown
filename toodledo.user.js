@@ -42,8 +42,10 @@ var addMarkdownSupport = function() {
 	var _displayNotebookEditor = origWindow.displayNotebookEditor;
 	origWindow.displayNotebookEditor = function() {
 		var a = parseInt(origWindow.$("#notebook_details").attr("nid"));
-		origWindow.currentList[a].text = origWindow.currentList[a].originalText;
-		origWindow.currentList[a].originalText = false;
+		if(a) {
+			origWindow.currentList[a].text = origWindow.currentList[a].originalText;
+			origWindow.currentList[a].originalText = false;
+		}
 		_displayNotebookEditor();
 	}
 };
