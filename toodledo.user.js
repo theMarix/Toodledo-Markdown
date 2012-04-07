@@ -33,6 +33,8 @@ var addMarkdownSupport = function() {
 			a = origWindow.currentList[a];
 			if(!a.originalText) {
 				a.originalText = a.text;
+				// remove additional linebreaks added by Toodledo that screw up markdown rendering
+				a.text = a.text.replace(/<br \/>/g, '');
 				a.text = converter.makeHtml(a.text);
 			}
 			_displayNotebookViewer();
